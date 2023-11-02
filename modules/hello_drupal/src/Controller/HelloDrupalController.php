@@ -30,6 +30,9 @@ class HelloDrupalController extends ControllerBase {
         '@username' => $current_user->getDisplayName(),
         '@uid' => $current_user->id(),
       ]),
+      '#markup' => $this->t("Current server time: @time", [
+        '@time' => \Drupal::service('date.formatter')->format(\Drupal::time()->getRequestTime(), 'custom', 'Y-m-d H:i:s'),
+      ]),
     ];
   }
 }
