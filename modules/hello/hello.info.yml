@@ -1,0 +1,5 @@
+name: 'hello'
+type: module
+description: 'first page'
+package: Custom
+core_version_requirement: ^10

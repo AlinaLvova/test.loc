@@ -1,0 +1,15 @@
+# hello.route:
+#   path: '/hello'
+#   defaults:
+#     _controller: '\Drupal\hello\Controller\HelloController::sayHello'
+#     _title: 'Hello, World!'
+#   requirements:
+#     _permission: 'access content'
+
+hello.route:
+  path: '/hello-first'
+  defaults:
+    _controller: '\Drupal\hello\Controller\HelloController::sayHello'
+    _title: 'Hello, World! Заголовок проекта!'
+  requirements:
+    _permission: 'access content'

@@ -1,0 +1,8 @@
+name: 'hello_drupal'
+type: module
+description: 'Custom module to greet users in Drupal.'
+package: Custom
+core_version_requirement: ^10
+core_version: 10.x
+dependencies:
+  - -_drupal:user

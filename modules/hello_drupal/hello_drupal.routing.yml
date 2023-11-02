@@ -1,0 +1,15 @@
+hello_drupal.hello:
+  path: '/hello'
+  defaults:
+    _controller: '\Drupal\hello_drupal\Controller\HelloDrupalController::hello'
+    # _title: 'Hello Drupal'
+  requirements:
+    _permission: 'access content'
+
+hello_drupal.hello_me:
+  path: '/hello/me'
+  defaults:
+    _controller: '\Drupal\hello_drupal\Controller\HelloDrupalController::helloMe'
+    # _title: 'Hello Me'
+  requirements:
+    _permission: 'access content'
