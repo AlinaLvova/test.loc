@@ -29,12 +29,17 @@ class HelloDrupalController extends ControllerBase
   {
     $current_user = \Drupal::currentUser();
 
+
+    // Получаем идентификатор и имя пользователя.
+    $user_id = $current_user->id();
+    $user_name = $current_user->getDisplayName();
+
     if ($current_user->isAuthenticated() || $current_user->hasPermission('administer site configuration')) {
 
       return [
         '#title' => $this->t("Hello, @username (@uid)!", [
-          '@username' => $current_user->getDisplayName(),
-          '@uid' => $current_user->id(),
+          '@username' => $user_name,
+          '@uid' => $user_id,
         ]),
         '#markup' => $this->t("Current server time: @time", [
           '@time' => \Drupal::service('date.formatter')->format(\Drupal::time()->getRequestTime(), 'custom', 'Y-m-d H:i:s'),
@@ -51,5 +56,26 @@ class HelloDrupalController extends ControllerBase
   public function accessDenied()
   {
     return new Response($this->t('Access Denied'), 403);
+  }
+
+  public function isPalindrome($text)
+  {
+    // Remove spaces and convert text to lowercase for comparison.
+    $text = strtolower(preg_replace('/[^a-z0-9]+/', '', $text));
+
+    // Compare the text with its reversed version.
+    if ($text === strrev($text)) {
+      $result = $this->t('Yes', [], ['context' => 'English']);
+    } else {
+      $result = $this->t('No', [], ['context' => 'English']);
+    }
+
+    return [
+      '#markup' => $this->t('Is "@text" a palindrome?<br />@result', [
+        '@text' => $text,
+        '@result' => $result
+      ]),
+      '#title' => $result,
+    ];
   }
 }

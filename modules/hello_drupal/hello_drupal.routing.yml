@@ -13,3 +13,10 @@ hello_drupal.hello_me:
     # _title: 'Hello Me'
   requirements:
     _permission: 'access content'
+
+hello_drupal.palindrome:
+  path: '/hello/palindrome/{text}'
+  defaults:
+    _controller: '\Drupal\hello_drupal\Controller\HelloDrupalController::isPalindrome'
+  requirements:
+    _permission: 'access content'
