@@ -76,5 +76,4 @@
 /.vagrant/
 
 # Ignore Composer files.
-/composer.phar
 /vendor/
